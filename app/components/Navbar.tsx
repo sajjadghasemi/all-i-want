@@ -16,7 +16,7 @@ const Navbar = ({ me }) => {
             </Link>
             <Link
                 className="w-16 after:content-[''] after:absolute after:w-0 after:h-[1px] after:block after:transition-all after:duration-500 after:ease-in-out after:bottom-1/4 hover:after:w-16 hover:after:h-[1px] hover:after:bg-slate-700"
-                href="/aaa"
+                href="/otp"
             >
                 otp
             </Link>
@@ -31,6 +31,12 @@ const Navbar = ({ me }) => {
                 href="/slider"
             >
                 slider
+            </Link>
+            <Link
+                className="w-16 after:content-[''] after:absolute after:w-0 after:h-[1px] after:block after:transition-all after:duration-500 after:ease-in-out after:bottom-1/4 hover:after:w-16 hover:after:h-[1px] hover:after:bg-slate-700"
+                href="/infinite-scroll"
+            >
+                infinite
             </Link>
             <Logout me={me} />
             <ChangeThemeButton />

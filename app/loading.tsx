@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "./store/store";
-
 const Loading = () => {
-    const theme = useSelector((state: RootState) => state.darkMode.darkToggle);
-    return <div className="text-4xl text-red-800">Loading...</div>;
+    return (
+        <div className="container mx-auto flex items-center justify-center gap-3">
+            <div className="h-16 w-1/2 bg-gray-500 opacity-90 animate-pulse"></div>
+        </div>
+    );
 };
 
 export default Loading;
