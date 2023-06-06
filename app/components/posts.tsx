@@ -5,6 +5,7 @@ import { getPosts } from "../lib/getPosts";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "../loading";
+import Link from "next/link";
 
 const Posts = ({ posts }) => {
     const { data, fetchNextPage, hasNextPage, status } = useInfiniteQuery({
@@ -21,7 +22,7 @@ const Posts = ({ posts }) => {
     if (!data.pages) return <Loading />;
 
     return (
-        <div className="container">
+        <div className="container mt-5 mx-auto">
             {status === "success" && (
                 <InfiniteScroll
                     dataLength={data.pages.length}
@@ -34,24 +35,20 @@ const Posts = ({ posts }) => {
                     }
                 >
                     {data?.pages?.map((group, i) => (
-                        <React.Fragment key={i}>
-                            {group.results.map((project, i) => (
-                                <div
-                                    key={i}
-                                    className="col-12 col-sm-12 col-md-6 my-20"
+                        <div
+                            className="flex flex-col gap-y-6 justify-center items-center text-center"
+                            key={i}
+                        >
+                            {group.results.map((project) => (
+                                <Link
+                                    href={`/${project.id.toString()}`}
+                                    key={project.id}
+                                    className="w-1/5 p-4 rounded-lg ring-2 cursor-pointer bg-gray-300 dark:bg-gray-800"
                                 >
-                                    <div className="card border-0 shadow text-center">
-                                        <div className="card-body">
-                                            <h5 className="card-title text-dark">
-                                                {project.id +
-                                                    " " +
-                                                    project.name}
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <h5>{project.id + " - " + project.name}</h5>
+                                </Link>
                             ))}
-                        </React.Fragment>
+                        </div>
                     ))}
                 </InfiniteScroll>
             )}

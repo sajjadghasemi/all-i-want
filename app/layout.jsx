@@ -1,7 +1,6 @@
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import { Providers } from "./providers";
-import ThemeProvider from "./theme";
 import Navbar from "./components/Navbar";
 import { cookies } from "next/headers";
 import Theme from "./theme";
@@ -32,7 +31,7 @@ const getMe = async () => {
     }
 };
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({ children, postModal }) {
     const me = await getMe();
     return (
         <html lang="en">
@@ -51,6 +50,7 @@ export default async function RootLayout({ children }) {
                         />
                         <Navbar me={me ? me : undefined} />
                         {children}
+                        {postModal}
                     </Theme>
                 </Providers>
             </body>
