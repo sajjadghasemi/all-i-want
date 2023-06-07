@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
+import Loading from "../../loading";
 
 const PostModal = dynamic(() => import("../../components/PostModal"), {
     loading: () => <p className="p-3">Loading...</p>,
@@ -27,7 +29,11 @@ const page = async ({ params }) => {
 
     if (!post) return notFound();
 
-    return <PostModal post={post} />;
+    return (
+        <Suspense fallback={<>Loading...</>}>
+            <PostModal post={post} />
+        </Suspense>
+    );
 };
 
 export default page;

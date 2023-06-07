@@ -12,20 +12,17 @@ const Logout = ({ me }) => {
         router.push("login");
     };
     return (
-        <>
+        <div className="border-2 px-3 rounded-lg">
             {me ? (
                 <span className="cursor-pointer" onClick={logout}>
                     {me.username}
                 </span>
             ) : (
-                <Link
-                    className="w-16 after:content-[''] after:absolute after:w-0 after:h-[1px] after:block after:transition-all after:duration-500 after:ease-in-out after:bottom-1/4 hover:after:w-16 hover:after:h-[1px] hover:after:bg-slate-700"
-                    href="/login"
-                >
+                <Link className="" href="/login">
                     Login
                 </Link>
             )}
-        </>
+        </div>
     );
 };
 

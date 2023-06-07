@@ -1,22 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const ChangeThemeButton = () => {
     const { theme, setTheme } = useTheme();
-    const changeTheme = () => {
-        console.log(theme);
-        if (theme === "dark") {
-            setTheme("light");
-        } else {
-            setTheme("dark");
-        }
-    };
     return (
-        <div className="cursor-pointer hover:underline" onClick={changeTheme}>
-            Change Theme
-        </div>
+        <select className="px-2 border-2 rounded-lg border-gray-400" value={theme} onChange={(e) => setTheme(e.target.value)}>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="system">System</option>
+        </select>
     );
 };
 
