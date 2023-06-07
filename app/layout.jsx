@@ -14,8 +14,7 @@ export const metadata = {
 };
 
 const getMe = async () => {
-    "use server";
-    const cookie = cookies().get("token");
+    let cookie = cookies().get("token");
     if (cookie) {
         const response = await fetch(`http://localhost:4000/user/me`, {
             method: "POST",
@@ -49,8 +48,8 @@ export default async function RootLayout({ children, postModal }) {
                             speed={200}
                         />
                         <Navbar me={me ? me : undefined} />
-                        {children}
                         {postModal}
+                        {children}
                     </Theme>
                 </Providers>
             </body>

@@ -15,7 +15,7 @@ const ChangeThemeButton = () => {
     };
     return (
         <div className="cursor-pointer hover:underline" onClick={changeTheme}>
-            ChangeThemeButton
+            Change Theme
         </div>
     );
 };
