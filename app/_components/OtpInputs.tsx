@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { RE_DIGIT } from "../constans";
+import { RE_DIGIT } from "../_lib/constans";
 
 export type Props = {
     value: string;

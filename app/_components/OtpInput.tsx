@@ -11,7 +11,7 @@ const OtpInput = () => {
 
     return (
         <div>
-            <OtpInputs value={otp} valueLength={6} onChange={onChange} />
+            <OtpInputs value={otp} valueLength={4} onChange={onChange} />
         </div>
     );
 };
